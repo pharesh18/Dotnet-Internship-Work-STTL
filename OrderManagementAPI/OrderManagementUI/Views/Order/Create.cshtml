@@ -1,0 +1,55 @@
+﻿@model OrderModel
+
+@{
+    ViewData["Title"] = "Create New Order";
+    var customerDetails = ViewBag.CustomerDetails;
+}
+
+<div class="container mt-5">
+    <div class="card w-75 m-auto">
+        <div class="card-header">
+            <h2 class="card-title">Create New Order</h2>
+        </div>
+        <div class="card-body">
+            <form asp-action="Create" method="post">
+                @* <div class="form-group mb-2">
+                    <label asp-for="CustomerId">Select Customer</label>
+                    <input asp-for="CustomerId" type="number" class="form-control" required />
+                    <span asp-validation-for="CustomerId" class="text-danger"></span>
+                </div> *@
+
+                <div class="form-group mb-4">
+                    <label asp-for="CustomerId">Select Customer</label>
+                    <select asp-for="CustomerId" class="form-control" required>
+                        <option value=""> -- Select Customer -- </option>
+                        @foreach (var customer in customerDetails)
+                        {
+                            <option value="@customer.CustomerId">@customer.Name (@customer.Email)</option>
+                        }
+                    </select>
+                    <span asp-validation-for="CustomerId" class="text-danger"></span>
+                </div>
+
+                @* <div class="form-group mb-2">
+                    <label asp-for="OrderDate">Order Date</label>
+                    <input asp-for="OrderDate" type="datetime-local" class="form-control" required />
+                    <span asp-validation-for="OrderDate" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-2">
+                    <label asp-for="TotalAmount">Total Amount</label>
+                    <input asp-for="TotalAmount" type="number" step="0.01" class="form-control" required />
+                    <span asp-validation-for="TotalAmount" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-4">
+                    <label asp-for="Status">Status</label>
+                    <input asp-for="Status" class="form-control" required />
+                    <span asp-validation-for="Status" class="text-danger"></span>
+                </div> *@
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary me-1">Create</button>
+                    <a asp-controller="Order" asp-action="Index" class="btn btn-secondary">Back to List</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

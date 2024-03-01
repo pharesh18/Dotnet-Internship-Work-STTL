@@ -1,0 +1,23 @@
+﻿@model IEnumerable<ToDoApp.Models.ToDoItem>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<p>
+    @Html.Raw(TempData["InsertMessage"])
+    @Html.Raw(TempData["EditMessage"])
+    @Html.Raw(TempData["DeleteMessage"])
+</p>
+
+<div class="title-box">
+    <h2>My Tasks</h2>
+    <p>
+        @Html.ActionLink("Add New Task", "Create", new { }, new { @class = "btn mybtn" })
+    </p>
+</div>
+
+@Html.Partial("_DisplayData", Model)
+

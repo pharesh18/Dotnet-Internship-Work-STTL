@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MVCFormModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Blogs">
+    <Key>
+      <PropertyRef Name="BLOG_ID" />
+    </Key>
+    <Property Name="BLOG_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BLOG_TITLE" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="BLOG_CATEGORY" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="BLOG_DESCRIPTION" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="BLOG_RATINGS" Type="int" Nullable="false" />
+    <Property Name="BLOG_CREATED_AT" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="EMP_ID" />
+    </Key>
+    <Property Name="EMP_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EMP_NAME" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="EMP_EMAIL" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="EMP_PHONE" Type="bigint" Nullable="false" />
+    <Property Name="EMP_DEPARTMENT" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="EMP_GENDER" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="EMP_DOB" Type="datetime" Nullable="false" />
+    <Property Name="EMP_SALARY" Type="numeric" Precision="10" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="PRODUCT_ID" />
+    </Key>
+    <Property Name="PRODUCT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PRODUCT_NAME" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="PRODUCT_DETAILS" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="PRODUCT_PRICE" Type="numeric" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="PRODUCT_QUANTITY" Type="int" Nullable="false" />
+    <Property Name="PRODUCT_MAN_DATE" Type="date" Nullable="false" />
+    <Property Name="PRODUCT_EXP_DATE" Type="datetime" Nullable="false" />
+    <Property Name="PRODUCT_TYPE" Type="varchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="MVCFormModelStoreContainer">
+    <EntitySet Name="Blogs" EntityType="Self.Blogs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

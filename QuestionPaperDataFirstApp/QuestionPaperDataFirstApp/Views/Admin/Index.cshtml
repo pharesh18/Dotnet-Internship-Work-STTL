@@ -1,0 +1,32 @@
+﻿@model IEnumerable<QuestionPaperDataFirstApp.Models.User>
+
+@{
+    ViewBag.Title = "Index";
+    //Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>All Users</h2>
+
+<p>
+    @Html.ActionLink("Create New User", "Create", new {}, new { @class = "btn btn-primary"})
+</p>
+
+
+@{
+    var admins = Model.Where(model => model.role == "admin");
+    var students = Model.Where(model => model.role == "student").ToList();
+    var teachers = Model.Where(model => model.role == "teacher").ToList();
+}
+
+<h2>Admins</h2>
+
+@Html.Partial("_ListUsers", admins)
+
+<h2>Teachers</h2>
+
+@Html.Partial("_ListUsers", teachers)
+
+<h2>Students</h2>
+
+@Html.Partial("_ListUsers", students)

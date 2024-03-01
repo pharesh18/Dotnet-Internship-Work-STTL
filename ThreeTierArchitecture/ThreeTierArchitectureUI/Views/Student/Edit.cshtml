@@ -1,0 +1,52 @@
+﻿@model StudentModel
+
+@{
+	ViewData["Title"] = "Edit";
+}
+
+<h3 class="mb-3">Update Student Details</h3>
+
+<div class="container p-0">
+	<form method="post" asp-controller="Student" asp-action="Edit">
+		<div class="mb-2">
+			<p class="m-0 p-0">First Name </p>
+			<input asp-for="Fname" value="@Model.Fname" type="text" class="form-control w-25" required/>
+			<span asp-validation-for="Fname" class="text-danger"></span>
+		</div>
+		<div class="mb-2">
+			<p class="m-0 p-0">Last Name </p>
+			<input asp-for="Lname" value="@Model.Lname" type="text" class="form-control w-25" required />
+			<span asp-validation-for="Lname" class="text-danger"></span>
+
+		</div>
+		<div class="mb-2">
+			<p class="m-0 p-0">Email</p>
+			<input asp-for="Email" value="@Model.Email" type="email" class="form-control w-25" required />
+			<span asp-validation-for="Email" class="text-danger"></span>
+
+		</div>
+		<div class="mb-2">
+			<p class="m-0 p-0">Password</p>
+			<input asp-for="Password" value="@Model.Password" type="password" class="form-control w-25" required />
+			<span asp-validation-for="Password" class="text-danger"></span>
+
+		</div>
+		<div class="mb-2">
+			<p class="m-0 p-0">Age</p>
+			<input asp-for="Age" min="1" max="120" value="@Model.Age" type="number" class="form-control w-25" required />
+			<span asp-validation-for="Age" class="text-danger"></span>
+		</div>
+		<div class="mb-2">
+			<p class="m-0 p-0">Gender</p>
+			<select asp-for="Gender" class="form-control w-25" required>
+				<option value="Male">Male</option>
+				<option value="Female">Female</option>
+			</select>
+			<span asp-validation-for="Gender" class="text-danger"></span>
+		</div>
+		<div style="display: flex;" class="mt-4">
+			<button type="submit" class="btn my-btn2 px-4 me-2">Save</button>
+			<a asp-action="index" class="btn my-btn px-4">Back To List</a>
+		</div>
+	</form>
+</div>

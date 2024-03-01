@@ -1,0 +1,75 @@
+﻿@model IEnumerable<QuestionPaperDataFirstApp.Models.Answer>
+
+@{
+    ViewBag.Title = "ExamHistory";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var srno = 1;
+}
+
+<h2 class="mb-3">Exam History</h2>
+
+<table class="table">
+    <tr>
+        <th>Sr. No</th>
+        <th>
+            @Html.DisplayNameFor(model => model.User.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QuestionsPaper.title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QuestionsPaper.description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.score)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QuestionsPaper.noOfQuestions)
+        </th>
+        <th>
+            Result
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@srno</td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuestionsPaper.title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuestionsPaper.description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.score)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuestionsPaper.noOfQuestions)
+            </td>
+            <td>
+                @{
+                    double per = Math.Round((Convert.ToDouble(item.score) / Convert.ToDouble(item.QuestionsPaper.noOfQuestions)) * 100, 2);
+                }
+                @Html.DisplayFor(modelItem => per)
+            </td>
+            <td>
+                @*@Html.ActionLink("Edit", "Edit", new { id=item.ansId }) |*@
+                @*@Html.ActionLink("Details", "Details", new { id=item.ansId }) |*@
+                @*@Html.ActionLink("Delete", "Delete", new { id = item.ansId })*@
+            </td>
+        </tr>
+        srno = srno + 1;
+    }
+
+</table>

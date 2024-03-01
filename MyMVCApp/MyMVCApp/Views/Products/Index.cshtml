@@ -1,0 +1,70 @@
+﻿@model IEnumerable<MyMVCApp.Models.Product>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PRODUCT_NAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PRODUCT_DETAILS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PRODUCT_PRICE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PRODUCT_QUANTITY)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PRODUCT_MAN_DATE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PRODUCT_EXP_DATE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PRODUCT_TYPE)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PRODUCT_NAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PRODUCT_DETAILS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PRODUCT_PRICE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PRODUCT_QUANTITY)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PRODUCT_MAN_DATE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PRODUCT_EXP_DATE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PRODUCT_TYPE)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PRODUCT_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PRODUCT_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PRODUCT_ID })
+        </td>
+    </tr>
+}
+
+</table>

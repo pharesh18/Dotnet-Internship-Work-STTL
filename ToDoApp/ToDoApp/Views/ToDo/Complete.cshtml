@@ -1,0 +1,11 @@
+﻿@model IEnumerable<ToDoApp.Models.ToDoItem>
+
+@{
+    ViewBag.Title = "Complete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="title-box">Completed Tasks</h2>
+<hr /><br />
+
+@Html.Partial("_DisplayData", Model)

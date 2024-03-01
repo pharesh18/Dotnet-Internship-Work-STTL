@@ -1,0 +1,46 @@
+﻿@model OrderModel
+
+@{
+    ViewData["Title"] = "Edit Order";
+}
+
+<div class="container mt-5">
+    <div class="card w-75 m-auto">
+        <div class="card-header">
+            <h2 class="card-title">Edit Order</h2>
+        </div>
+        <div class="card-body">
+            <form asp-action="Edit" method="post">
+                <input type="hidden" asp-for="OrderId" />
+                <div class="form-group mb-2">
+                    <label asp-for="CustomerId">Customer ID</label>
+                    <input asp-for="CustomerId" class="form-control" required />
+                    <span asp-validation-for="CustomerId" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-2">
+                    <label asp-for="OrderDate">Order Date</label>
+                    <input asp-for="OrderDate" class="form-control" required readonly />
+                    <span asp-validation-for="OrderDate" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-2">
+                    <label asp-for="TotalAmount">Total Amount</label>
+                    <input asp-for="TotalAmount" class="form-control" required readonly />
+                    <span asp-validation-for="TotalAmount" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-4">
+                    <label asp-for="Status">Status</label>
+                    <select asp-for="Status" class="form-control" required>
+                        <option value="Pending" selected>Pending</option>
+                        <option value="Shipped">Shipped</option>
+                        <option value="Delivered">Delivered</option>
+                    </select>
+                    <span asp-validation-for="Status" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary me-1">Save</button>
+                    <a asp-controller="Order" asp-action="Index" class="btn btn-secondary">Back to List</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

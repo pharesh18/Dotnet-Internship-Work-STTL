@@ -1,0 +1,83 @@
+﻿@model IEnumerable<CodeFirstCrud.Models.Employee>
+
+@{
+    ViewBag.Title = "AutoIndex";
+}
+
+<h2>AutoIndex</h2>
+
+@Html.Raw(TempData["InsertMessage"])
+@Html.Raw(TempData["EditMessage"])
+@Html.Raw(TempData["DeleteMessage"])
+@*<p style="color: green;">
+        @TempData["InsertMessage"];
+    </p>*@
+
+<p>
+    @*<a href="AutoCreate" class="btn btn-primary">Create New</a>*@
+    @Html.ActionLink("Create New", "AutoCreate", new { }, new {@class="btn btn-primary"})
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.EMP_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EMP_NAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EMP_EMAIL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EMP_PHONE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EMP_DEPARTMENT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EMP_GENDER)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EMP_DOB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EMP_SALARY)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EMP_ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EMP_NAME)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EMP_EMAIL)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EMP_PHONE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EMP_DEPARTMENT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EMP_GENDER)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EMP_DOB)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EMP_SALARY)
+            </td>
+            <td class="flex-row">
+                @Html.ActionLink("Edit", "AutoEdit", new { id = item.EMP_ID }, new {@class="btn btn-primary"}) |
+                @Html.ActionLink("Details", "AutoDetails", new { id = item.EMP_ID }, new { @class = "btn btn-secondary" }) |
+                @Html.ActionLink("Delete", "AutoDelete", new { id = item.EMP_ID }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+</table>

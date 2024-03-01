@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "a16U/XRq0Y0wpXUSCLKUj1KtOyOXuObUn5yfDyk3e1v1yEYaObLTpvBzuj09zQf2KpgAIs4J+OfQb8J2y/UPsg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\baps\\source\\repos\\Core\\Web Api\\OrderManagementAPI\\OrderManagementUI\\OrderManagementUI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\baps\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

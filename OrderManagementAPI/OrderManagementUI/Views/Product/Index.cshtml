@@ -1,0 +1,35 @@
+﻿@model List<ProductModel>
+
+@{
+    ViewData["Title"] = "Product List";
+}
+
+<div class="container mt-4">
+    <div class="card mb-3">
+        <div class="card-header d-flex justify-content-between align-items-center p-2">
+            <h3 class="card-title">List of Products</h3>
+            <a asp-controller="Product" asp-action="Create" class="btn btn-primary" style="border-radius: 0; padding: 6px 12px;">Add New Product</a>
+        </div>
+    </div>
+
+    <div class="row">
+        @foreach (var product in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">@product.Name</h5>
+                        <p class="card-text">@product.Description</p>
+                        <p class="card-text">Price: ₹@product.Price</p>
+                        <p class="card-text">Stock Quantity: @product.StockQuantity</p>
+                        <div>
+                            <a asp-controller="Product" asp-action="Edit" asp-route-id="@product.ProductId" class="btn btn-primary me-1" style="border-radius: 0; padding: 6px 12px;">Edit</a>
+                            <a asp-controller="Product" asp-action="Details" asp-route-id="@product.ProductId" class="btn btn-secondary me-1" style="border-radius: 0; padding: 6px 12px;">Details</a>
+                            <a asp-controller="Product" asp-action="Delete" asp-route-id="@product.ProductId" class="btn btn-danger me-1" style="border-radius: 0; padding: 6px 12px;">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,27 @@
+﻿@* @model Core_CRUD_App.Models.Student; *@
+@model Student
+@{
+	ViewData["Title"] = "Details";
+}
+
+
+<h4>Details page</h4>
+<div class="container p-0">
+	<p class="m-0 p-0">ID </p>
+	<label asp-for="Id" class="p-2 mb-3 w-25" style="background-color: rgb(255, 255, 255); border: 1px solid black; font-size: 18px; font-weight: 600; border-radius: 4px">@Model.Id</label>
+	<p class="m-0 p-0">First Name </p>
+	<label asp-for="Fname" class="p-2 mb-3 w-25" style="background-color: rgb(255, 255, 255); border: 1px solid black; font-size: 18px; font-weight: 600; border-radius: 4px">@Model.Fname</label>
+	<p class="m-0 p-0">Last Name </p>
+	<label asp-for="Lname" class="p-2 mb-3 w-25" style="background-color: rgb(255, 255, 255); border: 1px solid black; font-size: 18px; font-weight: 600; border-radius: 4px">@Model.Lname</label>
+	<p class="m-0 p-0">Email </p>
+	<label asp-for="Email" class="p-2 mb-3 w-25" style="background-color: rgb(255, 255, 255); border: 1px solid black; font-size: 18px; font-weight: 600; border-radius: 4px">@Model.Email</label>
+	<p class="m-0 p-0">Age </p>
+	<label asp-for="Age" class="p-2 mb-3 w-25" style="background-color: rgb(255, 255, 255); border: 1px solid black; font-size: 18px; font-weight: 600; border-radius: 4px">@Model.Age</label>
+	<p class="m-0 p-0">Gender </p>
+	<label asp-for="Gender" class="p-2 mb-3 w-25" style="background-color: rgb(255, 255, 255); border: 1px solid black; font-size: 18px; font-weight: 600; border-radius: 4px">@Model.Gender</label>
+	<br />
+	<div>
+		<a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-secondary me-1">Edit</a>
+		<a asp-action="Index" class="btn btn-primary">Back To List</a>
+	</div>
+</div>

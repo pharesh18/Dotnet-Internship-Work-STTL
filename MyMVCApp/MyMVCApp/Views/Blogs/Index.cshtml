@@ -1,0 +1,58 @@
+﻿@model IEnumerable<MyMVCApp.Models.Blog>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BLOG_TITLE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BLOG_CATEGORY)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BLOG_DESCRIPTION)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BLOG_RATINGS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BLOG_CREATED_AT)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BLOG_TITLE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BLOG_CATEGORY)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BLOG_DESCRIPTION)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BLOG_RATINGS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BLOG_CREATED_AT)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.BLOG_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.BLOG_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.BLOG_ID })
+        </td>
+    </tr>
+}
+
+</table>

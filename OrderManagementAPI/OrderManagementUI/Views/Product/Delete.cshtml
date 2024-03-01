@@ -1,0 +1,38 @@
+﻿@model ProductModel
+
+@{
+    ViewData["Title"] = "Delete Product";
+}
+
+<div class="container mt-5">
+    <div class="card w-75 m-auto">
+        <div class="card-header">
+            <h2 class="card-title">Delete Product</h2>
+            <h4>Are you sure you want to delete this product?</h4>
+        </div>
+        <div class="card-body">
+            <div class="form-group mb-2">
+                <label asp-for="Name">Name</label>
+                <div class="form-control">@Model.Name</div>
+            </div>
+            <div class="form-group mb-2">
+                <label asp-for="Description">Description</label>
+                <div class="form-control">@Model.Description</div>
+            </div>
+            <div class="form-group mb-2">
+                <label asp-for="Price">Price</label>
+                <div class="form-control">$@Model.Price</div>
+            </div>
+            <div class="form-group mb-4">
+                <label asp-for="StockQuantity">Stock Quantity</label>
+                <div class="form-control">@Model.StockQuantity</div>
+            </div>
+            <div class="form-group">
+                <form asp-action="Delete" method="post">
+                    <button type="submit" asp-route-id="@Model.ProductId" class="btn btn-danger me-1">Delete</button>
+                    <a asp-controller="Product" asp-action="Index" class="btn btn-primary">Back To List</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

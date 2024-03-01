@@ -1,0 +1,35 @@
+﻿@model IEnumerable<CodeFirstCrud.Models.Employee>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table>
+    <tr>
+        <th>EMP_ID</th>
+        <th>EMP_NAME</th>
+        <th>EMP_EMAIL</th>
+        <th>EMP_PHONE</th>
+        <th>EMP_DEPARTMENT</th>
+        <th>EMP_GENDER</th>
+        <th>EMP_DOB</th>
+        <th>EMP_SALARY</th>
+    </tr>
+
+    @{
+        foreach (var item in Model)
+        {
+        <tr>
+            <td>@item.EMP_ID</td>
+            <td>@item.EMP_NAME</td>
+            <td>@item.EMP_EMAIL</td>
+            <td>@item.EMP_PHONE</td>
+            <td>@item.EMP_DEPARTMENT</td>
+            <td>@item.EMP_GENDER</td>
+            <td>@item.EMP_DOB</td>
+            <td>@item.EMP_SALARY</td>
+        </tr>
+        }
+    }
+</table>

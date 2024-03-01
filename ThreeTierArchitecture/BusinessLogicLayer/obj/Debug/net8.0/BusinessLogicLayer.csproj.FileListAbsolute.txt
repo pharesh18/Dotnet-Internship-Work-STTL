@@ -1,0 +1,17 @@
+C:\Users\baps\source\repos\Core\Web Api\ThreeTierArchitecture\BusinessLogicLayer\bin\Debug\net8.0\BusinessLogicLayer.deps.json
+C:\Users\baps\source\repos\Core\Web Api\ThreeTierArchitecture\BusinessLogicLayer\bin\Debug\net8.0\BusinessLogicLayer.dll
+C:\Users\baps\source\repos\Core\Web Api\ThreeTierArchitecture\BusinessLogicLayer\bin\Debug\net8.0\BusinessLogicLayer.pdb
+C:\Users\baps\source\repos\Core\Web Api\ThreeTierArchitecture\BusinessLogicLayer\bin\Debug\net8.0\DataAccessLayer.dll
+C:\Users\baps\source\repos\Core\Web Api\ThreeTierArchitecture\BusinessLogicLayer\bin\Debug\net8.0\DataAccessLayer.pdb
+C:\Users\baps\source\repos\Core\Web Api\ThreeTierArchitecture\BusinessLogicLayer\obj\Debug\net8.0\BusinessLogicLayer.csproj.AssemblyReference.cache
+C:\Users\baps\source\repos\Core\Web Api\ThreeTierArchitecture\BusinessLogicLayer\obj\Debug\net8.0\BusinessLogicLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\baps\source\repos\Core\Web Api\ThreeTierArchitecture\BusinessLogicLayer\obj\Debug\net8.0\BusinessLogicLayer.AssemblyInfoInputs.cache
+C:\Users\baps\source\repos\Core\Web Api\ThreeTierArchitecture\BusinessLogicLayer\obj\Debug\net8.0\BusinessLogicLayer.AssemblyInfo.cs
+C:\Users\baps\source\repos\Core\Web Api\ThreeTierArchitecture\BusinessLogicLayer\obj\Debug\net8.0\BusinessLogicLayer.csproj.CoreCompileInputs.cache
+C:\Users\baps\source\repos\Core\Web Api\ThreeTierArchitecture\BusinessLogicLayer\obj\Debug\net8.0\BusinessLogicLayer.csproj.CopyComplete
+C:\Users\baps\source\repos\Core\Web Api\ThreeTierArchitecture\BusinessLogicLayer\obj\Debug\net8.0\BusinessLogicLayer.dll
+C:\Users\baps\source\repos\Core\Web Api\ThreeTierArchitecture\BusinessLogicLayer\obj\Debug\net8.0\refint\BusinessLogicLayer.dll
+C:\Users\baps\source\repos\Core\Web Api\ThreeTierArchitecture\BusinessLogicLayer\obj\Debug\net8.0\BusinessLogicLayer.pdb
+C:\Users\baps\source\repos\Core\Web Api\ThreeTierArchitecture\BusinessLogicLayer\obj\Debug\net8.0\ref\BusinessLogicLayer.dll
+C:\Users\baps\source\repos\Core\Web Api\ThreeTierArchitecture\BusinessLogicLayer\bin\Debug\net8.0\BusinessLogicLayer.runtimeconfig.json
+C:\Users\baps\source\repos\Core\Web Api\ThreeTierArchitecture\BusinessLogicLayer\obj\Debug\net8.0\BusinessLogicLayer.genruntimeconfig.cache

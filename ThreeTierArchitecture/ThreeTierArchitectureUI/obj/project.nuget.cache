@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "09hGcWtU8kusY6d4EeIP8ywYKbAa4rN5SncPnreSgSTnyviLA/KK+oH6xuaU9yZ3cdoyEBOzienoHgYuCEGMpg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\baps\\source\\repos\\Core\\Web Api\\ThreeTierArchitecture\\ThreeTierArchitectureUI\\ThreeTierArchitectureUI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\baps\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MVCFormModelStoreContainer" CdmEntityContainer="MVCFormEntities">
+    <EntitySetMapping Name="Blogs">
+      <EntityTypeMapping TypeName="MVCFormModel.Blog">
+        <MappingFragment StoreEntitySet="Blogs">
+          <ScalarProperty Name="BLOG_ID" ColumnName="BLOG_ID" />
+          <ScalarProperty Name="BLOG_TITLE" ColumnName="BLOG_TITLE" />
+          <ScalarProperty Name="BLOG_CATEGORY" ColumnName="BLOG_CATEGORY" />
+          <ScalarProperty Name="BLOG_DESCRIPTION" ColumnName="BLOG_DESCRIPTION" />
+          <ScalarProperty Name="BLOG_RATINGS" ColumnName="BLOG_RATINGS" />
+          <ScalarProperty Name="BLOG_CREATED_AT" ColumnName="BLOG_CREATED_AT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="MVCFormModel.Employee">
+        <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="EMP_ID" ColumnName="EMP_ID" />
+          <ScalarProperty Name="EMP_NAME" ColumnName="EMP_NAME" />
+          <ScalarProperty Name="EMP_EMAIL" ColumnName="EMP_EMAIL" />
+          <ScalarProperty Name="EMP_PHONE" ColumnName="EMP_PHONE" />
+          <ScalarProperty Name="EMP_DEPARTMENT" ColumnName="EMP_DEPARTMENT" />
+          <ScalarProperty Name="EMP_GENDER" ColumnName="EMP_GENDER" />
+          <ScalarProperty Name="EMP_DOB" ColumnName="EMP_DOB" />
+          <ScalarProperty Name="EMP_SALARY" ColumnName="EMP_SALARY" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="MVCFormModel.Product">
+        <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="PRODUCT_ID" ColumnName="PRODUCT_ID" />
+          <ScalarProperty Name="PRODUCT_NAME" ColumnName="PRODUCT_NAME" />
+          <ScalarProperty Name="PRODUCT_DETAILS" ColumnName="PRODUCT_DETAILS" />
+          <ScalarProperty Name="PRODUCT_PRICE" ColumnName="PRODUCT_PRICE" />
+          <ScalarProperty Name="PRODUCT_QUANTITY" ColumnName="PRODUCT_QUANTITY" />
+          <ScalarProperty Name="PRODUCT_MAN_DATE" ColumnName="PRODUCT_MAN_DATE" />
+          <ScalarProperty Name="PRODUCT_EXP_DATE" ColumnName="PRODUCT_EXP_DATE" />
+          <ScalarProperty Name="PRODUCT_TYPE" ColumnName="PRODUCT_TYPE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

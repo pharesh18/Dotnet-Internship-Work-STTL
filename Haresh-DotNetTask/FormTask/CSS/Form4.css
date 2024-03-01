@@ -1,0 +1,77 @@
+﻿body {
+    
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.table {
+    width: 580px;
+    box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.5);
+    margin: auto;
+    text-align: left;
+    padding: 20px 15px;
+}
+
+.middle-cont {
+    width: 900px;
+    display: flex;
+    align-items: start;
+    margin: auto;
+    margin-bottom: 50px;
+}
+
+.validation-cont {
+    width: 200px;
+}
+
+.table-left {
+    width: 230px;
+}
+
+.table-right {
+    width: 350px;
+}
+
+.container {
+    width: 100%;
+    /*border: 1px solid red;*/
+    min-height: 100vh;
+    text-align: center;
+    font-size: 20px;
+}
+
+.title {
+    margin-bottom: 20px;
+}
+
+.inputCont {
+    width: 300px;
+    padding: 5px;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.btn {
+    padding: 6px 20px;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+.btnConts {
+    padding: 4px 10px;
+    font-size: 16px;
+    margin: 5px;
+}
+
+.btn:nth-child(1) {
+    margin-right: 20px;
+}
+
+.gridView {
+    width: fit-content;
+    margin: auto;
+}

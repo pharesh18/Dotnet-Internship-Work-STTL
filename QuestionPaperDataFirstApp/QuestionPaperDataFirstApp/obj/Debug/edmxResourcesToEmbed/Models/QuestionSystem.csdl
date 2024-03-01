@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QuestionSystemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Question">
+    <Key>
+      <PropertyRef Name="queId" />
+    </Key>
+    <Property Name="queId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="question1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="opt1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="opt2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="opt3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="opt4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="answer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="paperId" Type="Int32" />
+    <NavigationProperty Name="QuestionsPaper" Relationship="Self.FK__Questions__paper__534D60F1" FromRole="Questions" ToRole="QuestionsPaper" />
+  </EntityType>
+  <EntityType Name="QuestionsPaper">
+    <Key>
+      <PropertyRef Name="paperId" />
+    </Key>
+    <Property Name="paperId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="title" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="noOfQuestions" Type="Int32" Nullable="false" />
+    <Property Name="status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="creation_date" Type="DateTime" Precision="3" />
+    <Property Name="userId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Questions" Relationship="Self.FK__Questions__paper__534D60F1" FromRole="QuestionsPaper" ToRole="Questions" />
+    <NavigationProperty Name="User" Relationship="Self.FK__Questions__userI__5AEE82B9" FromRole="QuestionsPaper" ToRole="Users" />
+    <NavigationProperty Name="Answers" Relationship="QuestionSystemModel.FK__Answer__paperId__6FE99F9F" FromRole="QuestionsPaper" ToRole="Answer" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="role" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="QuestionsPapers" Relationship="Self.FK__Questions__userI__5AEE82B9" FromRole="Users" ToRole="QuestionsPaper" />
+    <NavigationProperty Name="Answers" Relationship="QuestionSystemModel.FK__Answer__userId__70DDC3D8" FromRole="User" ToRole="Answer" />
+  </EntityType>
+  <Association Name="FK__Questions__paper__534D60F1">
+    <End Role="QuestionsPaper" Type="Self.QuestionsPaper" Multiplicity="0..1" />
+    <End Role="Questions" Type="Self.Question" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="QuestionsPaper">
+        <PropertyRef Name="paperId" />
+      </Principal>
+      <Dependent Role="Questions">
+        <PropertyRef Name="paperId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Questions__userI__5AEE82B9">
+    <End Role="Users" Type="Self.User" Multiplicity="1" />
+    <End Role="QuestionsPaper" Type="Self.QuestionsPaper" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="QuestionsPaper">
+        <PropertyRef Name="userId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QuestionSystemEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Questions" EntityType="Self.Question" />
+    <EntitySet Name="QuestionsPapers" EntityType="Self.QuestionsPaper" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <AssociationSet Name="FK__Questions__paper__534D60F1" Association="Self.FK__Questions__paper__534D60F1">
+      <End Role="QuestionsPaper" EntitySet="QuestionsPapers" />
+      <End Role="Questions" EntitySet="Questions" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Questions__userI__5AEE82B9" Association="Self.FK__Questions__userI__5AEE82B9">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="QuestionsPaper" EntitySet="QuestionsPapers" />
+    </AssociationSet>
+    <EntitySet Name="Answers" EntityType="QuestionSystemModel.Answer" />
+    <AssociationSet Name="FK__Answer__paperId__6FE99F9F" Association="QuestionSystemModel.FK__Answer__paperId__6FE99F9F">
+      <End Role="QuestionsPaper" EntitySet="QuestionsPapers" />
+      <End Role="Answer" EntitySet="Answers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Answer__userId__70DDC3D8" Association="QuestionSystemModel.FK__Answer__userId__70DDC3D8">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Answer" EntitySet="Answers" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Answer">
+    <Key>
+      <PropertyRef Name="ansId" />
+    </Key>
+    <Property Name="ansId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="paperId" Type="Int32" />
+    <Property Name="userId" Type="Int32" />
+    <Property Name="score" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="QuestionsPaper" Relationship="QuestionSystemModel.FK__Answer__paperId__6FE99F9F" FromRole="Answer" ToRole="QuestionsPaper" />
+    <NavigationProperty Name="User" Relationship="QuestionSystemModel.FK__Answer__userId__70DDC3D8" FromRole="Answer" ToRole="User" />
+  </EntityType>
+  <Association Name="FK__Answer__paperId__6FE99F9F">
+    <End Type="QuestionSystemModel.QuestionsPaper" Role="QuestionsPaper" Multiplicity="0..1" />
+    <End Type="QuestionSystemModel.Answer" Role="Answer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="QuestionsPaper">
+        <PropertyRef Name="paperId" />
+      </Principal>
+      <Dependent Role="Answer">
+        <PropertyRef Name="paperId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Answer__userId__70DDC3D8">
+    <End Type="QuestionSystemModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="QuestionSystemModel.Answer" Role="Answer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Answer">
+        <PropertyRef Name="userId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -1,0 +1,65 @@
+﻿@model List<OrderModel>
+
+@{
+    ViewData["Title"] = "List of Orders";
+    var customerDetails = ViewBag.CustomerDetails;
+}
+
+<div class="mt-4">
+    <div style="display: flex; justify-content: space-between;">
+        <div class="">
+            <h2>List of Orders</h2>
+        </div>
+        <div class="">
+            <a asp-action="Create" asp-controller="Order" class="btn btn-primary" style="border-radius: 0; padding: 8px 16px;">Add New Order</a>
+        </div>
+    </div>
+
+    <table class="table table-striped mt-3" style="border-radius: 0;">
+        <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>Customer ID</th>
+                @if(customerDetails != null)
+                {
+                    <th>Customer Name</th>
+                    <th>Customer Email</th>
+                }
+                <th>Order Date</th>
+                <th>Total Amount</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var order in Model)
+            {
+                <tr>
+                    <td>@order.OrderId</td>
+                    <td>@order.CustomerId</td>
+                    @if (customerDetails != null)
+                    {
+                        foreach(var customer in customerDetails)
+                        {
+                            if(order.CustomerId == customer.CustomerId)
+                            {
+                                <td>@customer.Name</td>
+                                <td>@customer.Email</td>
+                                break;
+                            }
+                        }
+                    }
+                    <td>@order.OrderDate</td>
+                    <td>₹@order.TotalAmount</td>
+                    <td>@order.Status</td>
+                    <td>
+                        <a asp-action="Edit" asp-controller="Order" asp-route-id="@order.OrderId" class="btn btn-primary me-1" style="border-radius: 0; padding: 6px 12px;">Edit</a>
+                        <a asp-action="Details" asp-controller="Order" asp-route-id="@order.OrderId" class="btn btn-info me-1" style="border-radius: 0; padding: 6px 12px;">Details</a>
+                        <a asp-action="Delete" asp-controller="Order" asp-route-id="@order.OrderId" class="btn btn-danger me-1" style="border-radius: 0; padding: 6px 12px;">Delete</a>
+                        <a asp-action="Create" asp-controller="OrderItem" asp-route-id="@order.OrderId" class="btn btn-warning" style="border-radius: 0; padding: 6px 12px;">Add Order Items</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

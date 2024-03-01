@@ -1,0 +1,80 @@
+﻿@model IEnumerable<QuestionPaperDataFirstApp.Models.Question>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int questions = Convert.ToInt32(Session["quiz"]);
+}
+
+<h2 class="mb-4">List of Questions</h2>
+
+<p>
+    @if (Model != null && Model.Count() == questions)
+    {
+        @Html.ActionLink("Add Question", "Create", new { }, new { @class = "btn btn-primary disabled" })
+    }
+    else
+    {
+        @Html.ActionLink("Add Question", "Create", new { }, new { @class = "btn btn-primary" })
+        questions = questions + 1;
+    }
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.question1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.opt1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.opt2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.opt3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.opt4)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.answer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QuestionsPaper.title)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.question1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.opt1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.opt2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.opt3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.opt4)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.answer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuestionsPaper.title)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.queId }, new { @class = "btn btn-primary" }) |
+                @Html.ActionLink("Details", "Details", new { id = item.queId }, new { @class = "btn btn-secondary" }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.queId }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>

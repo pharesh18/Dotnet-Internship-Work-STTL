@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QuestionSystemModelStoreContainer" CdmEntityContainer="QuestionSystemEntities">
+    <EntitySetMapping Name="Questions">
+      <EntityTypeMapping TypeName="QuestionSystemModel.Question">
+        <MappingFragment StoreEntitySet="Questions">
+          <ScalarProperty Name="queId" ColumnName="queId" />
+          <ScalarProperty Name="question1" ColumnName="question" />
+          <ScalarProperty Name="opt1" ColumnName="opt1" />
+          <ScalarProperty Name="opt2" ColumnName="opt2" />
+          <ScalarProperty Name="opt3" ColumnName="opt3" />
+          <ScalarProperty Name="opt4" ColumnName="opt4" />
+          <ScalarProperty Name="answer" ColumnName="answer" />
+          <ScalarProperty Name="paperId" ColumnName="paperId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QuestionsPapers">
+      <EntityTypeMapping TypeName="QuestionSystemModel.QuestionsPaper">
+        <MappingFragment StoreEntitySet="QuestionsPaper">
+          <ScalarProperty Name="paperId" ColumnName="paperId" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="noOfQuestions" ColumnName="noOfQuestions" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="creation_date" ColumnName="creation_date" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="QuestionSystemModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="role" ColumnName="role" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Answers">
+      <EntityTypeMapping TypeName="QuestionSystemModel.Answer">
+        <MappingFragment StoreEntitySet="Answer">
+          <ScalarProperty Name="score" ColumnName="score" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="paperId" ColumnName="paperId" />
+          <ScalarProperty Name="ansId" ColumnName="ansId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

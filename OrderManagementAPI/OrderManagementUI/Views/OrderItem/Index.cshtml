@@ -1,0 +1,43 @@
+﻿@model List<OrderItemModel>
+
+@{
+    ViewData["Title"] = "List of Order Items";
+}
+
+<div class="mt-4">
+    <div style="display: flex; justify-content: space-between;">
+        <div class="">
+            <h2>List of Order Items</h2>
+        </div>
+    </div>
+
+    <table class="table table-striped mt-3" style="border-radius: 0;">
+        <thead>
+            <tr>
+                <th>OrderItem ID</th>
+                <th>Order ID</th>
+                <th>Product ID</th>
+                <th>Quantity</th>
+                <th>Total Price</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var orderItem in Model)
+            {
+                <tr>
+                    <td>@orderItem.OrderItemId</td>
+                    <td>@orderItem.OrderId</td>
+                    <td>@orderItem.ProductId</td>
+                    <td>@orderItem.Quantity</td>
+                    <td>₹@orderItem.UnitPrice</td>
+                    <td>
+                        @* <a asp-action="Edit" asp-controller="OrderItem" asp-route-id="@orderItem.OrderItemId" class="btn btn-primary me-1" style="border-radius: 0; padding: 6px 12px;">Edit</a> *@
+                        <a asp-action="Details" asp-controller="OrderItem" asp-route-id="@orderItem.OrderItemId" class="btn btn-info me-1" style="border-radius: 0; padding: 6px 12px;">Details</a>
+                        <a asp-action="Delete" asp-controller="OrderItem" asp-route-id="@orderItem.OrderItemId" class="btn btn-danger" style="border-radius: 0; padding: 6px 12px;">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

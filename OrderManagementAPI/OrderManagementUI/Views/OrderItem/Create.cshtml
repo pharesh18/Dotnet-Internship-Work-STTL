@@ -1,0 +1,109 @@
+﻿@model OrderItemModel
+
+@{
+    ViewData["Title"] = "Create New Order Item";
+    var productList = ViewBag.ProductList;
+    int id = ViewBag.OrderId;
+}
+
+<div class="container mt-5">
+    <div class="card w-75 m-auto">
+        <div class="card-header">
+            <h2 class="card-title">Create New Order Item</h2>
+        </div>
+        <div class="card-body">
+            <form asp-controller="OrderItem" asp-action="Create" method="post">
+                <div class="form-group mb-2">
+                    <label asp-for="OrderId">Order ID</label>
+                    <input asp-for="OrderId" type="number" value="@id" class="form-control" required readonly />
+                    <span asp-validation-for="OrderId" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-2">
+                    <label asp-for="ProductId">Product ID</label>
+                    <input asp-for="ProductId" type="number" class="form-control" id="ProId" required />
+                    <span asp-validation-for="ProductId" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-2">
+                    <label asp-for="Quantity">Quantity</label>
+                    <input asp-for="Quantity" type="number" min="1" class="form-control" id="Quantity" required />
+                    <span asp-validation-for="Quantity" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-4">
+                    <label asp-for="UnitPrice">Unit Price</label>
+                    <input asp-for="UnitPrice" type="number" class="form-control" id="UnitPrice" required readonly />
+                    <span asp-validation-for="UnitPrice" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary me-1">Order</button>
+                    <a asp-controller="Order" asp-action="Index" class="btn btn-secondary">Back to Order</a>
+
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="mt-4">
+        <table class="table table-bordered table-striped mt-5" style="border-radius: 0;">
+            <thead>
+                <tr>
+                    <th>Product ID</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Stock Quantity</th>
+                    <th>Select</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var product in productList)
+                {
+                    <tr>
+                        <td>@product.ProductId</td>
+                        <td>@product.Name</td>
+                        <td>@product.Description</td>
+                        <td>₹@product.Price</td>
+                        <td>@product.StockQuantity</td>
+                        <td>
+                            <button class="btn btn-primary me-1 select-product" style="border-radius: 0; padding: 6px 12px;" data-product-id="@product.ProductId">Select</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+        var price;
+        var quantityInput = document.getElementById('Quantity');
+        var unitPriceInput = document.getElementById('UnitPrice');
+
+        document.querySelectorAll('.select-product').forEach(button => {
+            button.addEventListener('click', function () {
+
+                var productId = this.getAttribute('data-product-id');
+
+                document.getElementById('ProId').value = productId;
+
+                var parentRow = this.closest('tr');
+
+                var quantity = parentRow.cells[4].textContent.trim();
+                price = parentRow.cells[3].textContent.trim();
+                price = parseFloat(price.replace(/[^\d.]/g, ''));
+                if (isNaN(price)) {
+                    price = 0;
+                }
+
+                document.getElementById('Quantity').setAttribute('max', quantity);
+            });
+        });
+
+        quantityInput.addEventListener('input', function () {
+            var quantity = parseFloat(this.value);
+            var totalPrice = quantity * price;
+            unitPriceInput.value = totalPrice.toFixed(2);
+        });
+    });
+</script>

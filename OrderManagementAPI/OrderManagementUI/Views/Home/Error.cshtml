@@ -1,0 +1,9 @@
+﻿@{
+	ViewData["Title"] = "Error";
+	var errorMsg = TempData["error"];
+}
+
+<div class="container bg-danger bg-opacity-10 p-5" style="width: 100%;">
+	<h1 class="text-danger">Error!!</h1><br />
+	<p style="font-size: 18px;">@errorMsg</p>
+</div>

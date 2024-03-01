@@ -1,0 +1,41 @@
+﻿@model ProductModel
+
+@{
+    ViewData["Title"] = "Create New Product";
+}
+
+<div class="container mt-5">
+    <div class="card w-75 m-auto">
+        <div class="card-header">
+            <h2 class="card-title">Create New Product</h2>
+        </div>
+        <div class="card-body">
+            <form asp-action="Create" method="post">
+                <div class="form-group mb-2">
+                    <label asp-for="Name">Name</label>
+                    <input asp-for="Name" class="form-control" required />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-2">
+                    <label asp-for="Description">Description</label>
+                    <input asp-for="Description" class="form-control" required />
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-2">
+                    <label asp-for="Price">Price</label>
+                    <input asp-for="Price" type="number" step="0.01" class="form-control" required />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-4">
+                    <label asp-for="StockQuantity">Stock Quantity</label>
+                    <input asp-for="StockQuantity" type="number" class="form-control" required />
+                    <span asp-validation-for="StockQuantity" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary me-1">Create</button>
+                    <a asp-controller="Product" asp-action="Index" class="btn btn-secondary">Back to List</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

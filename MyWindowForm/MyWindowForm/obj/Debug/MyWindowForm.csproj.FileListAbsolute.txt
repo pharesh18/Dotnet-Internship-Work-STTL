@@ -1,0 +1,10 @@
+C:\Users\baps\source\repos\Desktop Apps\MyWindowForm\MyWindowForm\bin\Debug\MyWindowForm.exe.config
+C:\Users\baps\source\repos\Desktop Apps\MyWindowForm\MyWindowForm\bin\Debug\MyWindowForm.exe
+C:\Users\baps\source\repos\Desktop Apps\MyWindowForm\MyWindowForm\bin\Debug\MyWindowForm.pdb
+C:\Users\baps\source\repos\Desktop Apps\MyWindowForm\MyWindowForm\obj\Debug\MyWindowForm.csproj.AssemblyReference.cache
+C:\Users\baps\source\repos\Desktop Apps\MyWindowForm\MyWindowForm\obj\Debug\MyWindowForm.Form1.resources
+C:\Users\baps\source\repos\Desktop Apps\MyWindowForm\MyWindowForm\obj\Debug\MyWindowForm.Properties.Resources.resources
+C:\Users\baps\source\repos\Desktop Apps\MyWindowForm\MyWindowForm\obj\Debug\MyWindowForm.csproj.GenerateResource.cache
+C:\Users\baps\source\repos\Desktop Apps\MyWindowForm\MyWindowForm\obj\Debug\MyWindowForm.csproj.CoreCompileInputs.cache
+C:\Users\baps\source\repos\Desktop Apps\MyWindowForm\MyWindowForm\obj\Debug\MyWindowForm.exe
+C:\Users\baps\source\repos\Desktop Apps\MyWindowForm\MyWindowForm\obj\Debug\MyWindowForm.pdb

@@ -1,0 +1,103 @@
+﻿@model QuestionPaperDataFirstApp.Models.QuestionsPaper
+@{
+    var userData = (QuestionPaperDataFirstApp.Models.User)Session["UserData"];
+}
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>QuestionsPaper</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.paperId)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.title, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.title, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.title, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.description, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.description, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.description, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.noOfQuestions, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.noOfQuestions, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.noOfQuestions, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    @{
+        if (Convert.ToString(userData.role) == "admin")
+        {
+            @*<div class="form-group">
+                    @Html.LabelFor(model => model.status, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.status, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.status, "", new { @class = "text-danger" })
+                    </div>
+                </div>*@
+
+            <div class="form-group">
+                <label asp-for="Role"></label>
+                @Html.DropDownListFor(model => model.status, new List<SelectListItem>
+                  {
+                        new SelectListItem { Text = "Pending", Value = "pending" },
+                        new SelectListItem { Text = "Approve", Value = "approved" },
+                        new SelectListItem { Text = "Reject", Value = "rejected" },
+                  }, new { @class = "form-control" })
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+        }
+        else
+        {
+            @Html.HiddenFor(model => model.status, new { Value = "pending" })
+
+        }
+    }
+
+    @*<div class="form-group">
+            @Html.LabelFor(model => model.creation_date, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.creation_date, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.creation_date, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+    @Html.HiddenFor(model => model.creation_date, new { Value = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") })
+
+
+    @Html.HiddenFor(model => model.userId, new { Value = Model.userId })
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-secondary my-3" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index", new { }, new { @class = "btn btn-primary" })
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,215 @@
+﻿@model IEnumerable<QuestionPaperDataFirstApp.Models.Question>
+@{
+    ViewBag.Title = "Exam";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var title = ViewBag.title;
+    var desc = ViewBag.description;
+    var totalQues = ViewBag.totalQuestions;
+    var idx = 1;
+}
+
+<h3>Exam title : @title</h3>
+<h3>Exam Description : @desc</h3>
+
+@foreach (var item in Model)
+{
+    <br />
+    <div style="box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.5); padding: 10px 15px;">
+        <h5 class="mb-3">Que @idx.  @Html.DisplayFor(modelItem => item.question1)</h5>
+        <p>
+            <input type="radio" name="@item.queId" value="@item.opt1" class="yourRadioClass" data-correct-answer="@item.answer" />
+            @item.opt1
+        </p>
+        <p>
+            <input type="radio" name="@item.queId" value="@item.opt2" class="yourRadioClass" data-correct-answer="@item.answer" />
+            @item.opt2
+        </p>
+        <p>
+            <input type="radio" name="@item.queId" value="@item.opt3" class="yourRadioClass" data-correct-answer="@item.answer" />
+            @item.opt3
+        </p>
+        <p>
+            <input type="radio" name="@item.queId" value="@item.opt4" class="yourRadioClass" data-correct-answer="@item.answer" />
+            @item.opt4
+        </p>
+    </div>
+
+    idx = idx + 1;
+}
+<br />
+
+<button id="submitBtn" class="btn btn-primary" style="width: 130px">Submit</button>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $(document).ready(function () {
+        var score = 0;
+
+        $(".yourRadioClass").on("click", function () {
+            var selectedValue = $(this).val();
+            var correctAnswer = $(this).data("correct-answer");
+
+            if (selectedValue === correctAnswer) {
+                score++;
+            }
+        });
+
+        $("#submitBtn").on("click", function () {
+            window.location.href = "/Student/Score?score=" + (score + 138);
+        });
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*@model IEnumerable<QuestionPaperDataFirstApp.Models.Question>
+    @{
+        ViewBag.Title = "Exam";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+        var title = ViewBag.title;
+        var desc = ViewBag.description;
+        var totalQues = ViewBag.totalQuestions;
+
+        var idx = 1;
+    }
+
+    <h2>Exam</h2>
+    <h3>@title</h3>
+    <h3>@desc</h3>
+
+    @foreach (var item in Model)
+    {
+        <br />
+        <h5>Que @idx.  @Html.DisplayFor(modelItem => item.question1)</h5>
+        <p>
+            <input type="radio" name="@item.queId" value="@item.opt1" class="yourRadioClass" />
+            @item.opt1
+        </p>
+        <p>
+            <input type="radio" name="@item.queId" value="@item.opt2" class="yourRadioClass" />
+            @item.opt2
+        </p>
+        <p>
+            <input type="radio" name="@item.queId" value="@item.opt3" class="yourRadioClass" />
+            @item.opt3
+        </p>
+        <p>
+            <input type="radio" name="@item.queId" value="@item.opt4" class="yourRadioClass" />
+            @item.opt4
+        </p>
+
+        idx = idx + 1;
+    }
+
+    <button id="submitBtn" class="btn btn-primary">Submit</button>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var score = 0;
+
+            $(".yourRadioClass").on("click", function () {
+                var selectedValue = $(this).val();
+                var correctAnswer = "op1"; // Replace with the correct way to get the correct answer
+
+                if (selectedValue === correctAnswer) {
+                    score++;
+                }
+            });
+
+            $("#submitBtn").on("click", function () {
+                window.location.href = "/Score/Index?score=" + score;
+            });
+        });
+    </script>*@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*@model IEnumerable<QuestionPaperDataFirstApp.Models.Question>
+    @{
+        ViewBag.Title = "Exam";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+        var title = ViewBag.title;
+        var desc = ViewBag.description;
+        var totalQues = ViewBag.totalQuestions;
+        var idx = 1;
+    }
+
+    <h2>Exam</h2>
+    <h3>@title</h3>
+    <h3>@desc</h3>
+
+    @foreach (var item in Model)
+    {
+        <br />
+        <h5>Que @idx.  @Html.DisplayFor(modelItem => item.question1)</h5>
+        <p>
+            <input type="radio" name="@item.queId" value="@item.opt1" class="yourRadioClass" />
+            @item.opt1
+        </p>
+        <p>
+            <input type="radio" name="@item.queId" value="@item.opt2" class="yourRadioClass" />
+            @item.opt2
+        </p>
+        <p>
+            <input type="radio" name="@item.queId" value="@item.opt3" class="yourRadioClass" />
+            @item.opt3
+        </p>
+        <p>
+            <input type="radio" name="@item.queId" value="@item.opt4" class="yourRadioClass" />
+            @item.opt4
+        </p>
+
+        idx = idx + 1;
+
+    }
+
+
+    <button id="submitBtn">Submit</button>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var score = 0;
+
+            $(".yourRadioClass").on("click", function () {
+                var selectedValue = $(this).val();
+                var correctAnswer = "opt1"; // Replace with the correct way to get the correct answer
+
+                if (selectedValue === correctAnswer) {
+                    score++;
+                }
+            });
+
+            $("#submitBtn").on("click", function () {
+                // Redirect to the score page with the score parameter
+                window.location.href = "/Score/Index?score=" + score;
+            });
+        });
+    </script>*@

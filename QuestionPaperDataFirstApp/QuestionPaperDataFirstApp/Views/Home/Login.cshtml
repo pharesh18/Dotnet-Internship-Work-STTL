@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<p>
+    @Html.Raw(TempData["AlertMessage"])
+</p>
+
+@model QuestionPaperDataFirstApp.Models.LoginModel
+
+<form action="@Url.Action("Login")" method="post" class="login-form">
+    <h2>Login Form</h2>
+    <table>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.Username, new { @class = "text-label" })
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.Username, new { @class = "text-input" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.Password, new { @class = "text-label" })
+            </td>
+            <td>
+                @Html.PasswordFor(model => model.Password, new { @class = "text-input" })
+            </td>
+        </tr>
+    </table>
+
+    <input type="submit" value="Login" class="btn btn-primary" />
+</form>
+

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="fda479b0e4d444b991fe9336f30269a6" Name="Diagram1">
+        <EntityTypeShape EntityType="QuestionSystemModel.Question" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuestionSystemModel.QuestionsPaper" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuestionSystemModel.User" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <AssociationConnector Association="QuestionSystemModel.FK__Questions__paper__534D60F1" ManuallyRouted="false" />
+        <AssociationConnector Association="QuestionSystemModel.FK__Questions__userI__5AEE82B9" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="QuestionSystemModel.Answer" Width="1.5" PointX="8.25" PointY="1.375" />
+        <AssociationConnector Association="QuestionSystemModel.FK__Answer__paperId__6FE99F9F" />
+        <AssociationConnector Association="QuestionSystemModel.FK__Answer__userId__70DDC3D8" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

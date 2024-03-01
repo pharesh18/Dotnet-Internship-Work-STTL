@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @{
+        var userData = (QuestionPaperDataFirstApp.Models.User)Session["UserData"];
+    }
+</head>
+<body>
+    @if (userData != null)
+    {
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark" style="background-color: #ee9f27;">
+            <div class="container">
+                @if (userData.role == "admin")
+                {
+                    @Html.ActionLink("Admin Dashboard", "Index", "Admin", new { area = "" }, new { @class = "navbar-brand" })
+                }
+                else if (userData.role == "teacher")
+                {
+                    @Html.ActionLink("Teacher Dashboard", "TeacherDashboard", "Teacher", new { area = "" }, new { @class = "navbar-brand" })
+                }
+                else if (userData.role == "student")
+                {
+                    @Html.ActionLink("Student Dashboard", "StudentDashboard", "Student", new { area = "" }, new { @class = "navbar-brand" })
+                }
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        @if (userData != null)
+                        {
+                            if (userData.role == "admin")
+                            {
+                                
+                            }
+                            else if (userData.role == "teacher")
+                            {
+
+                            }
+                            else if (userData.role == "student")
+                            {
+                                <li>@Html.ActionLink("Question Papers", "StudentDashboard", "Student", new { area = "" }, new { @class = "nav-link" })</li>
+                                <li>@Html.ActionLink("Exam History", "ExamHistory", "Student", new { area = "" }, new { @class = "nav-link" })</li>
+                            }
+                            <li>@Html.ActionLink("Logout", "Logout", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        if (userData.role == "admin")
+        {
+
+            <div class="container my-3">
+                <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
+                    <!--<ul class="navbar-nav flex-grow-1">-->
+                    @*<li>@Html.ActionLink("Add User", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>*@
+                    <span>@Html.ActionLink("Show Papers", "Index", "QuestionsPapers", new { area = "" }, new { @class = "nav-link btn btn-warning py-2 px-3 size-18" })</span>&nbsp;&nbsp;
+                    <span>@Html.ActionLink("Exam History", "ExamHistoryAdmin", "Admin", new { area = "" }, new { @class = "nav-link btn btn-warning py-2 px-3 size-18" })</span>
+                    @*</ul>*@
+                </div>
+            </div>
+        }
+    }
+    <div class="container body-content">
+        @RenderBody()
+        @*<hr />*@
+            @*<footer style="position: absolute; bottom: 0; background-color: #ee9f27; width: 100%; left: 0; text-align: center; padding-top: 15px;">
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            </footer>*@
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

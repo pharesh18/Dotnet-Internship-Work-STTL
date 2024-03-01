@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body class="mybody">
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark navbar-bg">
+        <div class="container">
+            @Html.ActionLink("ToDo App", "Index", "ToDo", new { area = "" }, new { @class = "navbar-brand" })
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li>@Html.ActionLink("Add Task", "Create", "Todo", new { area = "" }, new { @class = "nav-link navlink-color" })</li>
+                    <li>@Html.ActionLink("Completed", "Complete", "Todo", new { area = "" }, new { @class = "nav-link navlink-color" })</li>
+                    <li>@Html.ActionLink("Incomplete", "Incomplete", "Todo", new { area = "" }, new { @class = "nav-link navlink-color" })</li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="content-body">
+        <div class="container my-3">
+            @RenderBody()
+        </div>
+        <footer class="footer">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem laudantium sed, ipsum nam, quod natus molestias quis aliquam eos itaque impedit assumenda, animi labore. Eius in voluptate ab, optio maxime, vero et maiores corporis natus dolore unde laborum! Eos unde assumenda in. Ad veritatis ab magni reiciendis. Nemo, dolores architecto.</p>
+            <p>&copy;todoapp.com All rights reserved</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

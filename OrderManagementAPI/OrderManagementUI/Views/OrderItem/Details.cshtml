@@ -1,0 +1,39 @@
+﻿@model OrderItemModel
+
+@{
+    ViewData["Title"] = "Order Item Details";
+}
+
+<div class="container mt-5">
+    <div class="card w-75 m-auto">
+        <div class="card-header">
+            <h2 class="card-title">Order Item Details</h2>
+        </div>
+        <div class="card-body">
+            <div class="form-group mb-2">
+                <label asp-for="OrderItemId">Order Item ID</label>
+                <div class="form-control">@Model.OrderItemId</div>
+            </div>
+            <div class="form-group mb-2">
+                <label asp-for="OrderId">Order ID</label>
+                <div class="form-control">@Model.OrderId</div>
+            </div>
+            <div class="form-group mb-2">
+                <label asp-for="ProductId">Product ID</label>
+                <div class="form-control">@Model.ProductId</div>
+            </div>
+            <div class="form-group mb-2">
+                <label asp-for="Quantity">Quantity</label>
+                <div class="form-control">@Model.Quantity</div>
+            </div>
+            <div class="form-group mb-4">
+                <label asp-for="UnitPrice">Unit Price</label>
+                <div class="form-control">₹@Model.UnitPrice</div>
+            </div>
+            <div class="form-group">
+                <a asp-controller="OrderItem" asp-action="Edit" asp-route-id="@Model.OrderItemId" class="btn btn-primary me-1">Edit</a>
+                <a asp-controller="OrderItem" asp-action="Index" class="btn btn-secondary">Back to List</a>
+            </div>
+        </div>
+    </div>
+</div>

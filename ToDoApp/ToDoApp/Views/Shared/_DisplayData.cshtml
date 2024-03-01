@@ -1,0 +1,16 @@
+﻿@model IEnumerable<ToDoApp.Models.ToDoItem>
+@using ToDoApp.Helpers
+
+<table class="table table-striped">
+    <tr>
+        <th>ID</th>
+        <th>Task</th>
+        <th>Status</th>
+        <th>Action</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        @Html.DisplayRowHelper(item)
+    }
+</table>

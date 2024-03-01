@@ -1,0 +1,44 @@
+﻿@model List<CustomerModel>
+
+@{
+    ViewData["Title"] = "List of Customers";
+}
+
+<div class="mt-4"">
+    <div style="display: flex; justify-content: space-between;">
+        <div class="">
+            <h2>List of Customers</h2>
+        </div>
+        <div class="">
+            <a href="@Url.Action("Create", "Admin")" class="btn btn-primary" style="border-radius: 0; padding: 8px 16px;">Add New Customer</a>
+        </div>
+    </div>
+
+    <table class="table table-striped mt-3" style="border-radius: 0;">
+        <thead>
+            <tr>
+                <th>Customer ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var customer in Model)
+            {
+                <tr>
+                    <td>@customer.CustomerId</td>
+                    <td>@customer.Name</td>
+                    <td>@customer.Email</td>
+                    <td>@customer.Address</td>
+                    <td>
+                        <a href="@Url.Action("Edit", "Admin", new { id = customer.CustomerId })" class="btn btn-primary me-1" style="border-radius: 0; padding: 6px 12px;">Edit</a>
+                        <a href="@Url.Action("Details", "Admin", new { id = customer.CustomerId })" class="btn btn-info me-1" style="border-radius: 0; padding: 6px 12px;">Details</a>
+                        <a href="@Url.Action("Delete", "Admin", new { id = customer.CustomerId })" class="btn btn-danger" style="border-radius: 0; padding: 6px 12px;">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

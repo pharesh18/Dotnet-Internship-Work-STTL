@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MVCFormModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Blog">
+    <Key>
+      <PropertyRef Name="BLOG_ID" />
+    </Key>
+    <Property Name="BLOG_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BLOG_TITLE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BLOG_CATEGORY" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BLOG_DESCRIPTION" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BLOG_RATINGS" Type="Int32" Nullable="false" />
+    <Property Name="BLOG_CREATED_AT" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="EMP_ID" />
+    </Key>
+    <Property Name="EMP_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EMP_NAME" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EMP_EMAIL" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EMP_PHONE" Type="Int64" Nullable="false" />
+    <Property Name="EMP_DEPARTMENT" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EMP_GENDER" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EMP_DOB" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EMP_SALARY" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="PRODUCT_ID" />
+    </Key>
+    <Property Name="PRODUCT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PRODUCT_NAME" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PRODUCT_DETAILS" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PRODUCT_PRICE" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="PRODUCT_QUANTITY" Type="Int32" Nullable="false" />
+    <Property Name="PRODUCT_MAN_DATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="PRODUCT_EXP_DATE" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="PRODUCT_TYPE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="MVCFormEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Blogs" EntityType="Self.Blog" />
+    <EntitySet Name="Employees" EntityType="Self.Employee" />
+    <EntitySet Name="Products" EntityType="Self.Product" />
+  </EntityContainer>
+</Schema>

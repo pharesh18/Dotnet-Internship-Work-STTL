@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QuestionSystemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Questions">
+    <Key>
+      <PropertyRef Name="queId" />
+    </Key>
+    <Property Name="queId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="question" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="opt1" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="opt2" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="opt3" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="opt4" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="answer" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="paperId" Type="int" />
+  </EntityType>
+  <EntityType Name="QuestionsPaper">
+    <Key>
+      <PropertyRef Name="paperId" />
+    </Key>
+    <Property Name="paperId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="noOfQuestions" Type="int" Nullable="false" />
+    <Property Name="status" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="creation_date" Type="datetime" />
+    <Property Name="userId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="email" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="role" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Questions__paper__534D60F1">
+    <End Role="QuestionsPaper" Type="Self.QuestionsPaper" Multiplicity="0..1" />
+    <End Role="Questions" Type="Self.Questions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="QuestionsPaper">
+        <PropertyRef Name="paperId" />
+      </Principal>
+      <Dependent Role="Questions">
+        <PropertyRef Name="paperId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Questions__userI__5AEE82B9">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="QuestionsPaper" Type="Self.QuestionsPaper" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="QuestionsPaper">
+        <PropertyRef Name="userId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QuestionSystemModelStoreContainer">
+    <EntitySet Name="Questions" EntityType="Self.Questions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="QuestionsPaper" EntityType="Self.QuestionsPaper" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Questions__paper__534D60F1" Association="Self.FK__Questions__paper__534D60F1">
+      <End Role="QuestionsPaper" EntitySet="QuestionsPaper" />
+      <End Role="Questions" EntitySet="Questions" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Questions__userI__5AEE82B9" Association="Self.FK__Questions__userI__5AEE82B9">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="QuestionsPaper" EntitySet="QuestionsPaper" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

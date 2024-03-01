@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34525.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "FormTask", "FormTask\", "{26489E81-7170-425E-8FE7-4438559AE779}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.7.2"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_56062"
+		Debug.AspNetCompiler.PhysicalPath = "FormTask\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_56062\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_56062"
+		Release.AspNetCompiler.PhysicalPath = "FormTask\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_56062\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "56062"
+		SlnRelativePath = "FormTask\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{26489E81-7170-425E-8FE7-4438559AE779}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26489E81-7170-425E-8FE7-4438559AE779}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EBE258C2-E039-4E63-9E4F-C9FBFB3E3EBB}
+	EndGlobalSection
+EndGlobal
